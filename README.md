@@ -16,6 +16,7 @@ Good to know:
 pirx-fotodater:
 
 Set Modified Time to Date and Time Picture was Taken all [jpg|JPG|jpeg|JPEG] files in current directory
+
 require: exiv2 (rhel/centos/sl: yum install exiv2)
 
 
