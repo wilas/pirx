@@ -62,7 +62,7 @@ Change name all filtr files in directory sort by modification time:
     cmd: ls -la
         roadtrip00001.jpg
         roadtrip00002.JPG
-        roadtrip00001.jpg
+        roadtrip00003.jpg
         simple.avi
         simple2.AVI
 
