@@ -39,6 +39,13 @@ List of files in directory:
         simple.avi
         simple2.AVI
 
+    cmd: ls -lat
+        DSC0001 123.jpg
+        DSC1234 145.JPG
+        DSC0002 122.jpg
+        simple2.AVI
+        simple.avi
+
 Change name all filtr files in directory:
     
     cmd: pirx -v roadtrip
@@ -46,6 +53,16 @@ Change name all filtr files in directory:
         roadtrip00001.jpg
         roadtrip00002.jpg
         roadtrip00003.JPG
+        simple.avi
+        simple2.AVI
+
+Change name all filtr files in directory sort by modification time:
+    
+    cmd: pirx -vt roadtrip
+    cmd: ls -la
+        roadtrip00001.jpg
+        roadtrip00002.JPG
+        roadtrip00001.jpg
         simple.avi
         simple2.AVI
 
