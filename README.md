@@ -1,6 +1,6 @@
 # Description
 
-pirx:
+`pirx`:
 
 Small, fast and easy to use bash script, for renaming multiple files (photos, music, movies - depend filtr file exension) in a folder at once.
 
@@ -13,7 +13,7 @@ Good to know:
 - Default filtr=.jpg|.JPG|.jpeg|.JPEG|.png|.PNG|.mp3|.awk|.mobi
 - Sort entries alphabetically if not -t.
 
-pirx-fotodater:
+`pirx-fotodater`:
 
 Set Modified Time to Date and Time Picture was Taken all [jpg|JPG|jpeg|JPEG] files in current directory
 
