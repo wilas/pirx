@@ -1,0 +1,45 @@
+#!/bin/bash
+
+#author: kamil wilas
+#hpage: wilas.pl
+#require: exiv2 (rhel/centos/sl: yum install exiv2)
+
+filtr=".jpg|.JPG|.jpeg|.JPEG"
+
+usage(){
+    echo "Usage: $0"
+    echo "Set Modified Time to Date and Time Picture was Taken all jpg files in current directory"
+    echo ""
+    echo "Ordering options:"
+    echo "-v,  --verbose        explain what is being done"
+    echo "-h,  --help           display this help and exit"
+    echo ""
+    echo "example: $0 -v"
+}
+
+
+OPTS=`getopt -o vht --long verbose,help -- "$@"`
+if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
+eval set -- "$OPTS"
+
+while true ; do
+    case "$1" in
+        -h | --help ) usage; exit ;;
+        -v | --verbose ) VERBOSE=true; shift;;
+        ? ) exit ;;
+        -- ) shift; break ;;
+        esac
+done
+
+#help fix white space in file_name
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+for file in `ls | grep -E $filtr`; do
+    touch "$file" -t `exiv2 "$file" | grep timestamp | awk '{split($5,t,":");print $4,t[1],t[2],".",t[3]}' | sed 's/[:, ]//g'`
+    if [ $VERBOSE ] ; then
+        echo "update $file"
+    fi
+done
+
+IFS=$SAVEIFS

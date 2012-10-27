@@ -1,0 +1,17 @@
+#!/bin/bash
+
+for file in {1..10}; do
+  num=`echo $RANDOM%10000 | bc`
+  echo $num
+  touch "test_a_$num.jpg"
+done
+for file in {1..10}; do
+  num=`echo $RANDOM%10000 | bc`
+  echo $num
+  touch "test_b_$num.JPG"
+done
+for file in {1..10}; do
+  num=`echo $RANDOM%10000 | bc`
+  echo $num
+  touch "test_c_$num.avi"
+done
