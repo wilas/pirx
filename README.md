@@ -82,7 +82,7 @@ Change name all filtr files in directory and set extra input file extension:
     cmd: ls -la
         roadtrip00001.jpg
         roadtrip00002.jpg
-        roadtrip00003.jpg
+        roadtrip00003.JPG
         roadtrip00004.avi
         simple2.AVI
 
