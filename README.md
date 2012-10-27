@@ -33,10 +33,11 @@ require: exiv2 (rhel/centos/sl: yum install exiv2)
 List of files in directory:
     
     cmd: ls -la
-        aaa.jpg
-        bbb.jpg
-        ccc.JPG
-        ddd.avi
+        DSC0001 123.jpg
+        DSC0002 122.jpg
+        DSC1234 145.JPG
+        simple.avi
+        simple2.AVI
 
 Change name all filtr files in directory:
     
@@ -45,14 +46,46 @@ Change name all filtr files in directory:
         roadtrip00001.jpg
         roadtrip00002.jpg
         roadtrip00003.JPG
-        ddd.avi
+        simple.avi
+        simple2.AVI
 
-Change name all filtr files in directory and set output extension for files:
+Change name all filtr files in directory and set output file extension:
     
-    cmd: pirx -v poland -o jpg
+    cmd: pirx -v roadtrip -o jpg
     cmd: ls -la
         roadtrip00001.jpg
         roadtrip00002.jpg
         roadtrip00003.jpg
-        ddd.avi
+        simple.avi
+        simple2.AVI
+
+Change name all filtr files in directory and set extra input file extension:
+    
+    cmd: pirx -v roadtrip -i avi
+    cmd: ls -la
+        roadtrip00001.jpg
+        roadtrip00002.jpg
+        roadtrip00003.jpg
+        roadtrip00004.avi
+        simple2.AVI
+
+Change name all filtr files in directory match pattern with extra input and output file extension:
+    
+    cmd: pirx -v -i avi|.AVI -p simple -o avi roadtrip
+    cmd: ls -la
+        DSC0001 123.jpg
+        DSC0002 122.jpg
+        DSC1234 145.JPG
+        roadtrip00001.avi
+        roadtrip00002.avi
+
+Replace spaces in all filtr files in directory:
+
+    cmd: pirx -vb _
+    cmd: ls -la
+        DSC0001_123.jpg
+        DSC0002_122.jpg
+        DSC1234_145.JPG
+        simple.avi
+        simple2.AVI
 
