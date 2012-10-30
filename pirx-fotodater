@@ -2,6 +2,7 @@
 
 #author: kamil wilas
 #hpage: wilas.pl
+#src: github.com/wilas/pirx
 #require: exiv2 (rhel/centos/sl: yum install exiv2)
 
 filtr=".jpg|.JPG|.jpeg|.JPEG"
@@ -17,7 +18,7 @@ usage(){
     echo "example: $0 -v"
 }
 
-
+# Option parse
 OPTS=`getopt -o vht --long verbose,help -- "$@"`
 if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
 eval set -- "$OPTS"
@@ -31,7 +32,8 @@ while true ; do
         esac
 done
 
-#help fix white space in file_name
+# Iterating over some filenames with whitespaces in them make some problem.
+# To fix: use $IFS variable to determine what the field separators are.
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 

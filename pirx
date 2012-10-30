@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #author: kamil wilas
-#web: wilas.pl
-#src: github.com/wilas
+#hpage: wilas.pl
+#src: github.com/wilas/pirx
 
 pirx_prefix="temp_pirx_prefix"
 cmd="ls"
 filtr=".jpg|.JPG|.jpeg|.JPEG|.png|.PNG|.mp3|.awk|.mobi"
-# default number of digits - help keep sorted file in directory
+# default number of digits - help keep sorted files in directory
 dignumber=5
 pattern=""
 
@@ -22,7 +22,7 @@ usage(){
     echo "-t                            sort by modification time"
     echo "-o [set_output_ext]           set output file extension (added also to extra input filtr)"
     echo "-i [input_filtr_ext]          set extra input filtr, e.g: MP3 or more complex MP3|.avi|.AVI"
-    echo "-d [dignumber]                set output dignumber, default=5 -> basename00001.jpg basename00110.jpg etc."
+    echo "-d [dignumber]                set number of digits in output record number, default=5 -> basename00001.jpg basename00110.jpg etc."
     echo "-b [replace_mark]             replace space with replace_mark, not change filename, e.g: one two012.jpg -> one_two012.jpg"
     echo "-p [pattern]                  change only file match pattern"
     echo "-v,  --verbose                explain what is being done"
@@ -37,11 +37,11 @@ move(){
     prefix=$1; shift
     for file in `eval $cmd | grep -E "$filtr" | grep -E "$pattern"`; do
 
-        # record number
+        # Record number
         n=`expr $n + 1`
         num=`printf "%0${dignumber}d" $n` 
         
-        # Create new filename with proper extension
+        # Help create new filename with proper extension
         if [ $blank ] ; then
             dest_file="$(echo $file | tr ' ' $blank)"
             [ -e $dest_file ] && continue
@@ -63,7 +63,7 @@ move(){
             fi
         fi
         
-        # Mirror mirror tell me true
+        # Mirror mirror tell me true - show time
         if [ $VERBOSE ] || [ $SIMULATION ] ; then
             echo "$file -> $dest_file"
         fi
@@ -91,13 +91,15 @@ while true ; do
     esac
 done
 
-# Fix white space problem in filename
+# Iterating over some filenames with whitespaces in them make some problem.
+# To fix: use $IFS variable to determine what the field separators are.
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
-# To not overwrite file when basename is not changed, change only record_number
-# Blank not change filename, record_number
+# If blank then not change filename to temporary, because record_number not change
 if [ ! $blank ] ; then
+    # Create temporary filename - To not overwrite existing files with same basename,
+    # often only record_number is changed
     move $pirx_prefix $@
     pattern=$pirx_prefix
 fi
