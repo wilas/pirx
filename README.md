@@ -36,15 +36,15 @@ List of files in directory:
         DSC0001 123.jpg
         DSC0002 122.jpg
         DSC1234 145.JPG
-        simple.avi
+        simple1.avi
         simple2.AVI
 
-    cmd: ls -lat
+    cmd: ls -lart
         DSC0001 123.jpg
         DSC1234 145.JPG
         DSC0002 122.jpg
         simple2.AVI
-        simple.avi
+        simple1.avi
 
 Change name all filtr files in directory:
     
@@ -53,7 +53,7 @@ Change name all filtr files in directory:
         roadtrip00001.jpg
         roadtrip00002.jpg
         roadtrip00003.JPG
-        simple.avi
+        simple1.avi
         simple2.AVI
 
 Change name all filtr files in directory sort by modification time:
@@ -63,7 +63,7 @@ Change name all filtr files in directory sort by modification time:
         roadtrip00001.jpg
         roadtrip00002.JPG
         roadtrip00003.jpg
-        simple.avi
+        simple1.avi
         simple2.AVI
 
 Change name all filtr files in directory and set output file extension:
@@ -73,7 +73,7 @@ Change name all filtr files in directory and set output file extension:
         roadtrip00001.jpg
         roadtrip00002.jpg
         roadtrip00003.jpg
-        simple.avi
+        simple1.avi
         simple2.AVI
 
 Change name all filtr files in directory and set extra input file extension:
@@ -103,6 +103,6 @@ Replace spaces in all filtr files in directory:
         DSC0001_123.jpg
         DSC0002_122.jpg
         DSC1234_145.JPG
-        simple.avi
+        simple1.avi
         simple2.AVI
 
