@@ -19,7 +19,7 @@ usage(){
 }
 
 # Option parse
-OPTS=`getopt -o vht --long verbose,help -- "$@"`
+OPTS=`getopt -o vh --long verbose,help -- "$@"`
 if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
 eval set -- "$OPTS"
 
