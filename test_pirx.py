@@ -8,7 +8,6 @@ import os
 class PirxTest(unittest.TestCase):
 
     def setUp(self):
-        self.pirx_bin = "%s/%s" % (os.getcwd(),"pirx")
         print "Setup: creating temp directory with sample files"
         self.path = tempfile.mkdtemp()
         self.filelist = ['DSC0001 123.jpg', 'DSC1234 145.JPG', 'DSC0002 122.jpg', 'simple2.AVI', 'simple1.avi']
@@ -32,12 +31,16 @@ class PirxTest(unittest.TestCase):
         out, err = process.communicate()
         return out.split("\n")[:-1]
 
+    def _run_pirx(self,opt):
+        # get script_path and add run options
+        pirx_run = ["%s/%s" % (os.getcwd(),"pirx")] + opt
+        process = subprocess.Popen(pirx_run, cwd=self.path, stdout=subprocess.PIPE)
+        out, err = process.communicate()
+
     def test_default_settings(self):
         """pirx -v roadtrip --> Test default settings (sorted_by_name, basic_filtr)"""
         expected_output = ['roadtrip00001.jpg', 'roadtrip00002.jpg', 'roadtrip00003.JPG', 'simple1.avi', 'simple2.AVI']
-        # run script
-        process = subprocess.Popen([self.pirx_bin, "-v", "roadtrip"], cwd=self.path, stdout=subprocess.PIPE)
-        out, err = process.communicate()
+        self._run_pirx(["-v","roadtrip"])
         self.assertEqual(self._tell_me_true(), expected_output, "script with default settings not work")
 
     def tearDown(self):
