@@ -21,8 +21,8 @@ require: exiv2 (rhel/centos/sl: yum install exiv2)
 
 
 ## Install
-    cp pirx* /usr/local/bin
     chmod +x pirx*
+    cp pirx* /usr/local/bin
 
 ## Help
     pirx -h
