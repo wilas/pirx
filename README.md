@@ -108,7 +108,7 @@ Replace spaces in all filtr files in directory:
 
 ## Copyright and license
 
-Copyright 2012, the pirx author
+Copyright 2012, the pirx authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this work except in compliance with the License.
