@@ -2,7 +2,7 @@
 
 **pirx**:
 
-Small, fast and easy to use bash script, for renaming multiple files (photos, music, movies - depend filtr file exension) in a folder at once.
+Small, fast and easy to use bash script, for renaming multiple files (photos, music, movies, books - depend filtr file exension) in a folder at once.
 
 Useful for:
 - change large batch of photos with names such as "DSC_1234.JPG" "IMG_0123.jpg" to give more convenient name.
