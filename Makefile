@@ -20,11 +20,6 @@ all:
 	@printf "usage:\tmake install\n"
 	@printf "\tmake uninstall\n"
 
-aa:
-	for target in $(BASH_TARGET); do \
-		echo $$target; \
-	done
-
 install: check-install
 	mkdir -p $(BUILD_DIR)
 	for target in $(BASH_TARGET); do \
